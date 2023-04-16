@@ -1,11 +1,17 @@
 import {Card} from "../components";
 import {UseFetch} from "../hooks/useFetch";
+import {useEffect} from "react";
+import {UseTitle} from "../hooks/useTitle";
 
-export const MovieList = ({apiPath}) => {
+
+export const MovieList = ({apiPath, title}) => {
     // const [movies, setMovies] = useState([])
     const {data: movies} = UseFetch(apiPath)
 
-
+    // useEffect(() => {
+    //     document.title = `${title}`;
+    // })
+    const pageTitle = UseTitle(`${title}`)
     return (
         <main>
             <section className={'max-w-7xl mx-auto py-7'}>

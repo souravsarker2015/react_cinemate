@@ -1,6 +1,7 @@
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import back_up_image from '../assets/images/backup.png'
+import {UseTitle} from "../hooks/useTitle";
 
 export const MovieDetail = () => {
     const params = useParams()
@@ -19,7 +20,10 @@ export const MovieDetail = () => {
 
 
     }, [])
-
+    const pageTitle = UseTitle(`${movie.title}`)
+    // useEffect(() => {
+    //     document.title = `${movie.title}`;
+    // })
 
     console.log(params)
     return (
@@ -81,7 +85,7 @@ export const MovieDetail = () => {
 
                     <p className={'my-4 '}>
                         <span className={'mr-2 font-bold'}>IMDB Code:</span>
-                        <a href={`https://www.imdb.com/title/${movie.imdb_id}/`} target={'_blank'} >{movie.imdb_id}</a>
+                        <a href={`https://www.imdb.com/title/${movie.imdb_id}/`} target={'_blank'}>{movie.imdb_id}</a>
                     </p>
 
 
